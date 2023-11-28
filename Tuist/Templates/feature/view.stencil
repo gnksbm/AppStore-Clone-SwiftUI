@@ -1,0 +1,22 @@
+import SwiftUI
+
+struct {{ name }}View: View {
+    @StateObject private var {{ name | lowercase }}ViewModel: {{ name }}ViewModel
+    
+    var body: some View {
+        VStack {
+        }
+    }
+    
+    init({{ name | lowercase }}ViewModel: {{ name }}ViewModel) {
+        self._{{ name | lowercase }}ViewModel = StateObject(
+            wrappedValue: {{ name | lowercase }}ViewModel
+        )
+    }
+}
+
+struct {{ name }}View_Previews: PreviewProvider {
+    static var previews: some View {
+        {{ name }}View({{ name | lowercase }}ViewModel: {{ name }}ViewModel())
+    }
+}

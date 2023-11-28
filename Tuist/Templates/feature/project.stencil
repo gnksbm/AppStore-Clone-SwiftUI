@@ -1,0 +1,11 @@
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let project = Project.makeProject(
+    name: "{{ name }}Feature",
+    targetKinds: .feature,
+    isTestable: true,
+    dependencies: [
+        .featureDependency
+    ]
+)
