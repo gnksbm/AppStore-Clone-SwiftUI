@@ -6,7 +6,8 @@ final class DomainFeatureTests: XCTestCase {
     
     override func setUpWithError() throws {
         sut = DefaultSearchUseCase(
-            repository: MockSearchRepository()
+            searchRepository: MockSearchRepository(),
+            randomWordsRepository: MockRandomWordsRepository()
         )
     }
 

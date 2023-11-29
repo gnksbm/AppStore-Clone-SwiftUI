@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SearchedApp: Hashable {
+public struct SearchedApp: Hashable, Codable {
     public let iconURL: URL
     public let title: String
     public let category: String
