@@ -11,7 +11,7 @@ import Foundation
 public final class MockRandomWordsRepository: RandomWordsRepository {
     private let mockStrings: [String] = ["제노", "카카오", "네이버", "토스", "구글", "애플"]
     public init() { }
-    public func fetch() async -> Result<[String], Error> {
+    public func fetch(request: RandomWordRequestDTO) async -> Result<[String], Error> {
         return .success(mockStrings)
     }
 }

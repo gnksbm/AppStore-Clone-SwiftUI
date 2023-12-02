@@ -18,7 +18,7 @@ extension SearchResponseDTO {
     func toDomain() -> [SearchedApp] {
         results.map {
             SearchedApp(
-                iconURL: $0.artworkUrl60,
+                iconURL: $0.artworkUrl60 ?? URL(string: "https://github.com/gnksbm/AppStore-Clone-SwiftUI")!,
                 title: $0.trackName,
                 category: $0.genres.first ?? "카테고리 미정",
                 rating: $0.averageUserRating,

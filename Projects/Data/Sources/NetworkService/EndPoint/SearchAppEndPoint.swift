@@ -1,5 +1,5 @@
 //
-//  SearchEndPoint.swift
+//  SearchAppEndPoint.swift
 //  Data
 //
 //  Created by gnksbm on 2023/11/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchEndPoint: EndPoint {
+struct SearchAppEndPoint: EndPoint {
     enum Path: String {
         case search, lookup
     }

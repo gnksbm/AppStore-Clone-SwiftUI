@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol RandomWordsRepository {
-    func fetch() async -> Result<[String], Error>
+    func fetch(request: RandomWordRequestDTO) async -> Result<[String], Error>
 }

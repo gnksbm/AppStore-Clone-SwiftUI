@@ -21,7 +21,7 @@ public final class DefaultSearchUseCase: SearchUseCase {
         return await searchRepository.search(request: SearchRequestDTO(term: term, limit: limit))
     }
     
-    public func fetchRandomWords() async -> Result<[String], Error> {
-        return await randomWordsRepository.fetch()
+    public func fetchRandomWords(count: Int, wordLength: Int) async -> Result<[String], Error> {
+        return await randomWordsRepository.fetch(request: .init(count: count, wordLength: wordLength))
     }
 }

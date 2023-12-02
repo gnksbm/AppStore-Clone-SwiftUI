@@ -9,5 +9,5 @@ import Foundation
 
 public protocol SearchUseCase {
     func search(term: String, limit: Int) async -> Result<[SearchedApp], Error>
-    func fetchRandomWords() async -> Result<[String], Error>
+    func fetchRandomWords(count: Int, wordLength: Int) async -> Result<[String], Error>
 }
