@@ -20,8 +20,7 @@ public extension Platform {
 public extension DeploymentTarget {
     static let current: Self = .iOS(
         targetVersion: "16.0",
-        devices: [.iphone],
-        supportsMacDesignedForIOS: false
+        devices: [.iphone]
     )
 }
 
