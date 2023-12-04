@@ -69,7 +69,7 @@ extension Project {
             infoPlist: .current,
             sources: ["Sources/**"],
             resources: ["Resources/**"],
-            entitlements: entitlements,
+            entitlements: entitlements ?? nil,
             scripts: [.swiftLint],
             dependencies: dependencies,
             settings: .secret
