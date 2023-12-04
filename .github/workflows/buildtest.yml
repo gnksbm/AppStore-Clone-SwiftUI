@@ -26,6 +26,13 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '14.2.0'
+        
+    - name: Bring ignored files
+      uses: actions/checkout@v3
+      with:
+        repository: gnksbm/AppStore-ignored
+        path: Config/Secrets.xcconfig
+        token: ${{ secrets.ACTION_TOKEN }}
 
     # - name: Install Fastlane
     #   run: brew install fastlane
