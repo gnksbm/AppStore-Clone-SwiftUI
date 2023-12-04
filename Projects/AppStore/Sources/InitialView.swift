@@ -11,7 +11,9 @@ import BaseTabFeature
 
 struct InitialView: View {
     var body: some View {
-        BaseTabView(baseTabViewModel: BaseTabViewModel())
+        BaseTabView(
+            baseTabViewModel: BaseTabViewModel()
+        )
     }
 }
 

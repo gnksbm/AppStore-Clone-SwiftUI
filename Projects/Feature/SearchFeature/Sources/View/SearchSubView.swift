@@ -22,7 +22,7 @@ struct SearchSubView: View {
     var body: some View {
         Group {
             switch searchViewModel.viewStatus {
-            case .normal:
+            case .normal, .searching:
                 VStack(alignment: .leading) {
                     Text("새로운 발견")
                         .bold()
@@ -45,8 +45,6 @@ struct SearchSubView: View {
                 }
             case .showResult:
                 SearchResultView(appList: searchViewModel.appList)
-            case .searching:
-                EmptyView()
             }
         }
         .onChange(of: isSearching) { isSearching in
@@ -59,12 +57,7 @@ struct SearchSubView: View {
 struct SearchSubView_Previews: PreviewProvider {
     static var previews: some View {
         SearchSubView(
-            searchViewModel: SearchViewModel(
-                useCase: DefaultSearchUseCase(
-                    searchRepository: MockSearchRepository(),
-                    randomWordsRepository: MockRandomWordsRepository()
-                )
-            )
+            searchViewModel: .forPreview
         )
     }
 }

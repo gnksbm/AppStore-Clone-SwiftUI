@@ -21,10 +21,12 @@ public final class SearchViewModel: ObservableObject {
     public init(useCase: SearchUseCase) {
         self.searchUseCase = useCase
         Task {
-            let result = await searchUseCase.fetchRandomWords()
+            let result = await searchUseCase.fetchRandomWords(count: 6, wordLength: 6)
             switch result {
             case .success(let strArr):
-                self.discovery = strArr
+                await MainActor.run {
+                    self.discovery = strArr
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -69,4 +71,13 @@ extension SearchViewModel {
     enum ViewStatus {
         case normal, searching, showResult
     }
+}
+
+extension SearchViewModel {
+    static let forPreview: SearchViewModel = .init(
+        useCase: DefaultSearchUseCase(
+            searchRepository: MockSearchRepository(),
+            randomWordsRepository: MockRandomWordsRepository()
+        )
+    )
 }

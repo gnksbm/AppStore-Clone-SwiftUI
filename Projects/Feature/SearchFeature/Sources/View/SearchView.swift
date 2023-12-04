@@ -68,12 +68,7 @@ public struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(
-            searchViewModel: SearchViewModel(
-                useCase: DefaultSearchUseCase(
-                    searchRepository: MockSearchRepository(),
-                    randomWordsRepository: MockRandomWordsRepository()
-                )
-            )
+            searchViewModel: .forPreview
         )
     }
 }

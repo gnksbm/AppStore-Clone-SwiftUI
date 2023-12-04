@@ -9,13 +9,25 @@
 import SwiftUI
 
 import SearchFeature
+import Domain
 
 public struct BaseTabView: View {
     @StateObject private var baseTabViewModel: BaseTabViewModel
     
     public var body: some View {
         TabView {
-            
+            SearchView(
+                searchViewModel: SearchViewModel(
+                    useCase: DefaultSearchUseCase(
+                        searchRepository: DIContainer.resolve(
+                            type: SearchRepository.self
+                        ),
+                        randomWordsRepository: DIContainer.resolve(
+                            type: RandomWordsRepository.self
+                        )
+                    )
+                )
+            )
         }
     }
     
